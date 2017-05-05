@@ -30,14 +30,15 @@ namespace RapportVisite
             ceIdVisiteur = levisiteurConnecte.idVisiteur;
         }
 
-       
+# region Au chargement du formulaire
         private void frmModifierFrais_Load(object sender, EventArgs e)
         {
            // bsModifierFrais.DataSource = maConnexion.fichefrais;
 
             afficheRecap();   
         }
-       
+#endregion
+
         #region Au chargement du formulaire On affiche toutes les fiches de frais du visiteur connecté
         public void afficheRecap()
         {
