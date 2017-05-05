@@ -1,0 +1,1217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GSB2_EQ3Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="GSB2_EQ3ModelStoreContainer">
+          <EntitySet Name="Etat" EntityType="GSB2_EQ3Model.Store.Etat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FAMILLE" EntityType="GSB2_EQ3Model.Store.FAMILLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Fichefrais" EntityType="GSB2_EQ3Model.Store.Fichefrais" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FraisForfait" EntityType="GSB2_EQ3Model.Store.FraisForfait" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Laboratoire" EntityType="GSB2_EQ3Model.Store.Laboratoire" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LigneFraisForfait" EntityType="GSB2_EQ3Model.Store.LigneFraisForfait" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LigneFraisHorsForfait" EntityType="GSB2_EQ3Model.Store.LigneFraisHorsForfait" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MEDECIN" EntityType="GSB2_EQ3Model.Store.MEDECIN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MEDICAMENT" EntityType="GSB2_EQ3Model.Store.MEDICAMENT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MOTIF" EntityType="GSB2_EQ3Model.Store.MOTIF" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OFFRIR" EntityType="GSB2_EQ3Model.Store.OFFRIR" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RAPPORT" EntityType="GSB2_EQ3Model.Store.RAPPORT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Region" EntityType="GSB2_EQ3Model.Store.Region" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Secteur" EntityType="GSB2_EQ3Model.Store.Secteur" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SPECIALITE" EntityType="GSB2_EQ3Model.Store.SPECIALITE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Travailler" EntityType="GSB2_EQ3Model.Store.Travailler" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Visiteur" EntityType="GSB2_EQ3Model.Store.Visiteur" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Fichefrai__idEta__6D0D32F4" Association="GSB2_EQ3Model.Store.FK__Fichefrai__idEta__6D0D32F4">
+            <End Role="Etat" EntitySet="Etat" />
+            <End Role="Fichefrais" EntitySet="Fichefrais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Fichefrai__idVis__6E01572D" Association="GSB2_EQ3Model.Store.FK__Fichefrai__idVis__6E01572D">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Fichefrais" EntitySet="Fichefrais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFrai__idFra__74AE54BC" Association="GSB2_EQ3Model.Store.FK__LigneFrai__idFra__74AE54BC">
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
+            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFraisForfai__73BA3083" Association="GSB2_EQ3Model.Store.FK__LigneFraisForfai__73BA3083">
+            <End Role="Fichefrais" EntitySet="Fichefrais" />
+            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFraisHorsFo__03F0984C" Association="GSB2_EQ3Model.Store.FK__LigneFraisHorsFo__03F0984C">
+            <End Role="Fichefrais" EntitySet="Fichefrais" />
+            <End Role="LigneFraisHorsForfait" EntitySet="LigneFraisHorsForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laboratoire" Association="GSB2_EQ3Model.Store.FK_Laboratoire">
+            <End Role="Laboratoire" EntitySet="Laboratoire" />
+            <End Role="Visiteur" EntitySet="Visiteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECTEUR" Association="GSB2_EQ3Model.Store.FK_SECTEUR">
+            <End Role="Secteur" EntitySet="Secteur" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRAVAILLER" Association="GSB2_EQ3Model.Store.FK_TRAVAILLER">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Travailler" EntitySet="Travailler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITEURSECTEUR" Association="GSB2_EQ3Model.Store.FK_VISITEURSECTEUR">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Secteur" EntitySet="Secteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITEURTRAVAIL" Association="GSB2_EQ3Model.Store.FK_VISITEURTRAVAIL">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Travailler" EntitySet="Travailler" />
+          </AssociationSet>
+          <AssociationSet Name="medecin_fk" Association="GSB2_EQ3Model.Store.medecin_fk">
+            <End Role="SPECIALITE" EntitySet="SPECIALITE" />
+            <End Role="MEDECIN" EntitySet="MEDECIN" />
+          </AssociationSet>
+          <AssociationSet Name="medicament_fk" Association="GSB2_EQ3Model.Store.medicament_fk">
+            <End Role="FAMILLE" EntitySet="FAMILLE" />
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+          </AssociationSet>
+          <AssociationSet Name="offrir_fk1" Association="GSB2_EQ3Model.Store.offrir_fk1">
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+            <End Role="OFFRIR" EntitySet="OFFRIR" />
+          </AssociationSet>
+          <AssociationSet Name="offrir_fk2" Association="GSB2_EQ3Model.Store.offrir_fk2">
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+            <End Role="OFFRIR" EntitySet="OFFRIR" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk1" Association="GSB2_EQ3Model.Store.rapport_fk1">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk2" Association="GSB2_EQ3Model.Store.rapport_fk2">
+            <End Role="MEDECIN" EntitySet="MEDECIN" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk3" Association="GSB2_EQ3Model.Store.rapport_fk3">
+            <End Role="MOTIF" EntitySet="MOTIF" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Etat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="libelle" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="FAMILLE">
+          <Key>
+            <PropertyRef Name="idFamille" />
+          </Key>
+          <Property Name="idFamille" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="libFamille" Type="varchar" Nullable="false" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Fichefrais">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+            <PropertyRef Name="mois" />
+          </Key>
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="mois" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="nbJustificatifs" Type="int" />
+          <Property Name="montantValide" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="dateModif" Type="char" MaxLength="10" />
+          <Property Name="idEtat" Type="char" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="FraisForfait">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="libelle" Type="char" MaxLength="20" />
+          <Property Name="montant" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="Laboratoire">
+          <Key>
+            <PropertyRef Name="idLabo" />
+          </Key>
+          <Property Name="idLabo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nomLabo" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="LigneFraisForfait">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+            <PropertyRef Name="mois" />
+            <PropertyRef Name="idFraisForfait" />
+          </Key>
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="mois" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="idFraisForfait" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="quantite" Type="int" />
+        </EntityType>
+        <EntityType Name="LigneFraisHorsForfait">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="mois" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="libelle" Type="varchar" MaxLength="100" />
+          <Property Name="date" Type="char" MaxLength="10" />
+          <Property Name="montant" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="MEDECIN">
+          <Key>
+            <PropertyRef Name="idMedecin" />
+          </Key>
+          <Property Name="idMedecin" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="prenom" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="adresse" Type="varchar" Nullable="false" MaxLength="80" />
+          <Property Name="tel" Type="varchar" MaxLength="15" />
+          <Property Name="idSpecialite" Type="char" MaxLength="3" />
+          <Property Name="departement" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDICAMENT">
+          <Key>
+            <PropertyRef Name="idMedicament" />
+          </Key>
+          <Property Name="idMedicament" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="nomCommercial" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="idFamille" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="composition" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="effets" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="contreIndications" Type="varchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="MOTIF">
+          <Key>
+            <PropertyRef Name="idMotif" />
+          </Key>
+          <Property Name="idMotif" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="libMotif" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="OFFRIR">
+          <Key>
+            <PropertyRef Name="idRapport" />
+            <PropertyRef Name="idMedicament" />
+          </Key>
+          <Property Name="idRapport" Type="int" Nullable="false" />
+          <Property Name="idMedicament" Type="char" Nullable="false" MaxLength="12" />
+          <Property Name="quantite" Type="int" />
+        </EntityType>
+        <EntityType Name="RAPPORT">
+          <Key>
+            <PropertyRef Name="idRapport" />
+          </Key>
+          <Property Name="idRapport" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="dateRapport" Type="date" />
+          <Property Name="idMotif" Type="int" />
+          <Property Name="bilan" Type="varchar" MaxLength="64" />
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="idMedecin" Type="int" Nullable="false" />
+          <Property Name="etatRapport" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="idRegion" />
+          </Key>
+          <Property Name="idRegion" Type="int" Nullable="false" />
+          <Property Name="libRegion" Type="varchar" MaxLength="64" />
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="idSecteur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Secteur">
+          <Key>
+            <PropertyRef Name="idSecteur" />
+          </Key>
+          <Property Name="idSecteur" Type="int" Nullable="false" />
+          <Property Name="libSecteur" Type="varchar" MaxLength="64" />
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="SPECIALITE">
+          <Key>
+            <PropertyRef Name="idSpecialite" />
+          </Key>
+          <Property Name="idSpecialite" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="libSpecialite" Type="varchar" Nullable="false" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Travailler">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+            <PropertyRef Name="idRegion" />
+          </Key>
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="idRegion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Visiteur">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+          </Key>
+          <Property Name="idVisiteur" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="idLabo" Type="int" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="32" />
+          <Property Name="prenom" Type="varchar" MaxLength="32" />
+          <Property Name="rue" Type="varchar" MaxLength="64" />
+          <Property Name="cp" Type="char" MaxLength="5" />
+          <Property Name="ville" Type="varchar" MaxLength="64" />
+          <Property Name="dateEmbauche" Type="char" MaxLength="10" />
+          <Property Name="identifiant" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="128" />
+          <Property Name="droit" Type="int" />
+        </EntityType>
+        <Association Name="FK__Fichefrai__idEta__6D0D32F4">
+          <End Role="Etat" Type="GSB2_EQ3Model.Store.Etat" Multiplicity="0..1" />
+          <End Role="Fichefrais" Type="GSB2_EQ3Model.Store.Fichefrais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etat">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Fichefrais">
+              <PropertyRef Name="idEtat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Fichefrai__idVis__6E01572D">
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Store.Visiteur" Multiplicity="1" />
+          <End Role="Fichefrais" Type="GSB2_EQ3Model.Store.Fichefrais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="Fichefrais">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LigneFrai__idFra__74AE54BC">
+          <End Role="FraisForfait" Type="GSB2_EQ3Model.Store.FraisForfait" Multiplicity="1" />
+          <End Role="LigneFraisForfait" Type="GSB2_EQ3Model.Store.LigneFraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FraisForfait">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LigneFraisForfait">
+              <PropertyRef Name="idFraisForfait" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LigneFraisForfai__73BA3083">
+          <End Role="Fichefrais" Type="GSB2_EQ3Model.Store.Fichefrais" Multiplicity="1" />
+          <End Role="LigneFraisForfait" Type="GSB2_EQ3Model.Store.LigneFraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fichefrais">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Principal>
+            <Dependent Role="LigneFraisForfait">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LigneFraisHorsFo__03F0984C">
+          <End Role="Fichefrais" Type="GSB2_EQ3Model.Store.Fichefrais" Multiplicity="1" />
+          <End Role="LigneFraisHorsForfait" Type="GSB2_EQ3Model.Store.LigneFraisHorsForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fichefrais">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Principal>
+            <Dependent Role="LigneFraisHorsForfait">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laboratoire">
+          <End Role="Laboratoire" Type="GSB2_EQ3Model.Store.Laboratoire" Multiplicity="1" />
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Store.Visiteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laboratoire">
+              <PropertyRef Name="idLabo" />
+            </Principal>
+            <Dependent Role="Visiteur">
+              <PropertyRef Name="idLabo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECTEUR">
+          <End Role="Secteur" Type="GSB2_EQ3Model.Store.Secteur" Multiplicity="1" />
+          <End Role="Region" Type="GSB2_EQ3Model.Store.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secteur">
+              <PropertyRef Name="idSecteur" />
+            </Principal>
+            <Dependent Role="Region">
+              <PropertyRef Name="idSecteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRAVAILLER">
+          <End Role="Region" Type="GSB2_EQ3Model.Store.Region" Multiplicity="1" />
+          <End Role="Travailler" Type="GSB2_EQ3Model.Store.Travailler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="Travailler">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISITEURSECTEUR">
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Store.Visiteur" Multiplicity="1" />
+          <End Role="Secteur" Type="GSB2_EQ3Model.Store.Secteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="Secteur">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISITEURTRAVAIL">
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Store.Visiteur" Multiplicity="1" />
+          <End Role="Travailler" Type="GSB2_EQ3Model.Store.Travailler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="Travailler">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="medecin_fk">
+          <End Role="SPECIALITE" Type="GSB2_EQ3Model.Store.SPECIALITE" Multiplicity="0..1" />
+          <End Role="MEDECIN" Type="GSB2_EQ3Model.Store.MEDECIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPECIALITE">
+              <PropertyRef Name="idSpecialite" />
+            </Principal>
+            <Dependent Role="MEDECIN">
+              <PropertyRef Name="idSpecialite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="medicament_fk">
+          <End Role="FAMILLE" Type="GSB2_EQ3Model.Store.FAMILLE" Multiplicity="1" />
+          <End Role="MEDICAMENT" Type="GSB2_EQ3Model.Store.MEDICAMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAMILLE">
+              <PropertyRef Name="idFamille" />
+            </Principal>
+            <Dependent Role="MEDICAMENT">
+              <PropertyRef Name="idFamille" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="offrir_fk1">
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.Store.RAPPORT" Multiplicity="1" />
+          <End Role="OFFRIR" Type="GSB2_EQ3Model.Store.OFFRIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAPPORT">
+              <PropertyRef Name="idRapport" />
+            </Principal>
+            <Dependent Role="OFFRIR">
+              <PropertyRef Name="idRapport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="offrir_fk2">
+          <End Role="MEDICAMENT" Type="GSB2_EQ3Model.Store.MEDICAMENT" Multiplicity="1" />
+          <End Role="OFFRIR" Type="GSB2_EQ3Model.Store.OFFRIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENT">
+              <PropertyRef Name="idMedicament" />
+            </Principal>
+            <Dependent Role="OFFRIR">
+              <PropertyRef Name="idMedicament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="rapport_fk1">
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Store.Visiteur" Multiplicity="1" />
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.Store.RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="rapport_fk2">
+          <End Role="MEDECIN" Type="GSB2_EQ3Model.Store.MEDECIN" Multiplicity="1" />
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.Store.RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDECIN">
+              <PropertyRef Name="idMedecin" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idMedecin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="rapport_fk3">
+          <End Role="MOTIF" Type="GSB2_EQ3Model.Store.MOTIF" Multiplicity="0..1" />
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.Store.RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOTIF">
+              <PropertyRef Name="idMotif" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idMotif" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GSB2_EQ3Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="GSB_EQ3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Etat" EntityType="GSB2_EQ3Model.Etat" />
+          <EntitySet Name="FAMILLE" EntityType="GSB2_EQ3Model.FAMILLE" />
+          <EntitySet Name="FraisForfait" EntityType="GSB2_EQ3Model.FraisForfait" />
+          <EntitySet Name="Laboratoire" EntityType="GSB2_EQ3Model.Laboratoire" />
+          <EntitySet Name="LigneFraisForfait" EntityType="GSB2_EQ3Model.LigneFraisForfait" />
+          <EntitySet Name="LigneFraisHorsForfait" EntityType="GSB2_EQ3Model.LigneFraisHorsForfait" />
+          <EntitySet Name="MEDECIN" EntityType="GSB2_EQ3Model.MEDECIN" />
+          <EntitySet Name="MEDICAMENT" EntityType="GSB2_EQ3Model.MEDICAMENT" />
+          <EntitySet Name="MOTIF" EntityType="GSB2_EQ3Model.MOTIF" />
+          <EntitySet Name="OFFRIR" EntityType="GSB2_EQ3Model.OFFRIR" />
+          <EntitySet Name="RAPPORT" EntityType="GSB2_EQ3Model.RAPPORT" />
+          <EntitySet Name="Region" EntityType="GSB2_EQ3Model.Region" />
+          <EntitySet Name="Secteur" EntityType="GSB2_EQ3Model.Secteur" />
+          <EntitySet Name="SPECIALITE" EntityType="GSB2_EQ3Model.SPECIALITE" />
+          <EntitySet Name="Visiteur" EntityType="GSB2_EQ3Model.Visiteur" />
+          <AssociationSet Name="medicament_fk" Association="GSB2_EQ3Model.medicament_fk">
+            <End Role="FAMILLE" EntitySet="FAMILLE" />
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFrai__idFra__2B3F6F97" Association="GSB2_EQ3Model.FK__LigneFrai__idFra__2B3F6F97">
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
+            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laboratoire" Association="GSB2_EQ3Model.FK_Laboratoire">
+            <End Role="Laboratoire" EntitySet="Laboratoire" />
+            <End Role="Visiteur" EntitySet="Visiteur" />
+          </AssociationSet>
+          <AssociationSet Name="medecin_fk" Association="GSB2_EQ3Model.medecin_fk">
+            <End Role="SPECIALITE" EntitySet="SPECIALITE" />
+            <End Role="MEDECIN" EntitySet="MEDECIN" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk2" Association="GSB2_EQ3Model.rapport_fk2">
+            <End Role="MEDECIN" EntitySet="MEDECIN" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="offrir_fk2" Association="GSB2_EQ3Model.offrir_fk2">
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+            <End Role="OFFRIR" EntitySet="OFFRIR" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk3" Association="GSB2_EQ3Model.rapport_fk3">
+            <End Role="MOTIF" EntitySet="MOTIF" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="offrir_fk1" Association="GSB2_EQ3Model.offrir_fk1">
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+            <End Role="OFFRIR" EntitySet="OFFRIR" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk1" Association="GSB2_EQ3Model.rapport_fk1">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECTEUR" Association="GSB2_EQ3Model.FK_SECTEUR">
+            <End Role="Secteur" EntitySet="Secteur" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITEURSECTEUR" Association="GSB2_EQ3Model.FK_VISITEURSECTEUR">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Secteur" EntitySet="Secteur" />
+          </AssociationSet>
+          <AssociationSet Name="Travailler" Association="GSB2_EQ3Model.Travailler">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Visiteur" EntitySet="Visiteur" />
+          </AssociationSet>
+          <EntitySet Name="fichefrais" EntityType="GSB2_EQ3Model.fichefrais" />
+          <AssociationSet Name="FK__Fichefrai__idEta__6D0D32F4" Association="GSB2_EQ3Model.FK__Fichefrai__idEta__6D0D32F4">
+            <End Role="Etat" EntitySet="Etat" />
+            <End Role="Fichefrais1" EntitySet="fichefrais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Fichefrai__idVis__6E01572D" Association="GSB2_EQ3Model.FK__Fichefrai__idVis__6E01572D">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Fichefrais1" EntitySet="fichefrais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFraisForfai__73BA3083" Association="GSB2_EQ3Model.FK__LigneFraisForfai__73BA3083">
+            <End Role="Fichefrais1" EntitySet="fichefrais" />
+            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFraisHorsFo__03F0984C" Association="GSB2_EQ3Model.FK__LigneFraisHorsFo__03F0984C">
+            <End Role="Fichefrais1" EntitySet="fichefrais" />
+            <End Role="LigneFraisHorsForfait" EntitySet="LigneFraisHorsForfait" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Etat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="libelle" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Fichefrais" Relationship="GSB2_EQ3Model.FK__Fichefrai__idEta__6D0D32F4" FromRole="Etat" ToRole="Fichefrais1" />
+        </EntityType>
+        <EntityType Name="FAMILLE">
+          <Key>
+            <PropertyRef Name="idFamille" />
+          </Key>
+          <Property Name="idFamille" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="libFamille" Type="String" Nullable="false" MaxLength="80" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="MEDICAMENT" Relationship="GSB2_EQ3Model.medicament_fk" FromRole="FAMILLE" ToRole="MEDICAMENT" />
+        </EntityType>
+        <EntityType Name="FraisForfait">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="libelle" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="montant" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="LigneFraisForfait" Relationship="GSB2_EQ3Model.FK__LigneFrai__idFra__2B3F6F97" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
+        </EntityType>
+        <EntityType Name="Laboratoire">
+          <Key>
+            <PropertyRef Name="idLabo" />
+          </Key>
+          <Property Name="idLabo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomLabo" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB2_EQ3Model.FK_Laboratoire" FromRole="Laboratoire" ToRole="Visiteur" />
+        </EntityType>
+        <EntityType Name="LigneFraisForfait">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+            <PropertyRef Name="mois" />
+            <PropertyRef Name="idFraisForfait" />
+          </Key>
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="mois" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="idFraisForfait" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="quantite" Type="Int32" />
+          <NavigationProperty Name="FraisForfait" Relationship="GSB2_EQ3Model.FK__LigneFrai__idFra__2B3F6F97" FromRole="LigneFraisForfait" ToRole="FraisForfait" />
+          <NavigationProperty Name="Fichefrais" Relationship="GSB2_EQ3Model.FK__LigneFraisForfai__73BA3083" FromRole="LigneFraisForfait" ToRole="Fichefrais1" />
+        </EntityType>
+        <EntityType Name="LigneFraisHorsForfait">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="mois" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="libelle" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="date" Type="String" />
+          <Property Name="montant" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Fichefrais" Relationship="GSB2_EQ3Model.FK__LigneFraisHorsFo__03F0984C" FromRole="LigneFraisHorsForfait" ToRole="Fichefrais1" />
+        </EntityType>
+        <EntityType Name="MEDECIN">
+          <Key>
+            <PropertyRef Name="idMedecin" />
+          </Key>
+          <Property Name="idMedecin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="adresse" Type="String" Nullable="false" MaxLength="80" Unicode="false" FixedLength="false" />
+          <Property Name="tel" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="idSpecialite" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="departement" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SPECIALITE" Relationship="GSB2_EQ3Model.medecin_fk" FromRole="MEDECIN" ToRole="SPECIALITE" />
+          <NavigationProperty Name="RAPPORT" Relationship="GSB2_EQ3Model.rapport_fk2" FromRole="MEDECIN" ToRole="RAPPORT" />
+        </EntityType>
+        <EntityType Name="MEDICAMENT">
+          <Key>
+            <PropertyRef Name="idMedicament" />
+          </Key>
+          <Property Name="idMedicament" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="nomCommercial" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="idFamille" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="composition" Type="String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="effets" Type="String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="contreIndications" Type="String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="FAMILLE" Relationship="GSB2_EQ3Model.medicament_fk" FromRole="MEDICAMENT" ToRole="FAMILLE" />
+          <NavigationProperty Name="OFFRIR" Relationship="GSB2_EQ3Model.offrir_fk2" FromRole="MEDICAMENT" ToRole="OFFRIR" />
+        </EntityType>
+        <EntityType Name="MOTIF">
+          <Key>
+            <PropertyRef Name="idMotif" />
+          </Key>
+          <Property Name="idMotif" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="libMotif" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="RAPPORT" Relationship="GSB2_EQ3Model.rapport_fk3" FromRole="MOTIF" ToRole="RAPPORT" />
+        </EntityType>
+        <EntityType Name="OFFRIR">
+          <Key>
+            <PropertyRef Name="idRapport" />
+            <PropertyRef Name="idMedicament" />
+          </Key>
+          <Property Name="idRapport" Type="Int32" Nullable="false" />
+          <Property Name="idMedicament" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="quantite" Type="Int32" />
+          <NavigationProperty Name="MEDICAMENT" Relationship="GSB2_EQ3Model.offrir_fk2" FromRole="OFFRIR" ToRole="MEDICAMENT" />
+          <NavigationProperty Name="RAPPORT" Relationship="GSB2_EQ3Model.offrir_fk1" FromRole="OFFRIR" ToRole="RAPPORT" />
+        </EntityType>
+        <EntityType Name="RAPPORT">
+          <Key>
+            <PropertyRef Name="idRapport" />
+          </Key>
+          <Property Name="idRapport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateRapport" Type="DateTime" />
+          <Property Name="idMotif" Type="Int32" />
+          <Property Name="bilan" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="idMedecin" Type="Int32" Nullable="false" />
+          <Property Name="etatRapport" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MEDECIN" Relationship="GSB2_EQ3Model.rapport_fk2" FromRole="RAPPORT" ToRole="MEDECIN" />
+          <NavigationProperty Name="MOTIF" Relationship="GSB2_EQ3Model.rapport_fk3" FromRole="RAPPORT" ToRole="MOTIF" />
+          <NavigationProperty Name="OFFRIR" Relationship="GSB2_EQ3Model.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB2_EQ3Model.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="idRegion" />
+          </Key>
+          <Property Name="idRegion" Type="Int32" Nullable="false" />
+          <Property Name="libRegion" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="idSecteur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Secteur" Relationship="GSB2_EQ3Model.FK_SECTEUR" FromRole="Region" ToRole="Secteur" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB2_EQ3Model.Travailler" FromRole="Region" ToRole="Visiteur" />
+        </EntityType>
+        <EntityType Name="Secteur">
+          <Key>
+            <PropertyRef Name="idSecteur" />
+          </Key>
+          <Property Name="idSecteur" Type="Int32" Nullable="false" />
+          <Property Name="libSecteur" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Region" Relationship="GSB2_EQ3Model.FK_SECTEUR" FromRole="Secteur" ToRole="Region" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB2_EQ3Model.FK_VISITEURSECTEUR" FromRole="Secteur" ToRole="Visiteur" />
+        </EntityType>
+        <EntityType Name="SPECIALITE">
+          <Key>
+            <PropertyRef Name="idSpecialite" />
+          </Key>
+          <Property Name="idSpecialite" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="libSpecialite" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="MEDECIN" Relationship="GSB2_EQ3Model.medecin_fk" FromRole="SPECIALITE" ToRole="MEDECIN" />
+        </EntityType>
+        <EntityType Name="Visiteur">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+          </Key>
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="idLabo" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="prenom" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="rue" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="cp" Type="String" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="ville" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="dateEmbauche" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="identifiant" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="droit" Type="Int32" />
+          <NavigationProperty Name="Laboratoire" Relationship="GSB2_EQ3Model.FK_Laboratoire" FromRole="Visiteur" ToRole="Laboratoire" />
+          <NavigationProperty Name="RAPPORT" Relationship="GSB2_EQ3Model.rapport_fk1" FromRole="Visiteur" ToRole="RAPPORT" />
+          <NavigationProperty Name="Secteur" Relationship="GSB2_EQ3Model.FK_VISITEURSECTEUR" FromRole="Visiteur" ToRole="Secteur" />
+          <NavigationProperty Name="Region" Relationship="GSB2_EQ3Model.Travailler" FromRole="Visiteur" ToRole="Region" />
+          <NavigationProperty Name="Fichefrais" Relationship="GSB2_EQ3Model.FK__Fichefrai__idVis__6E01572D" FromRole="Visiteur" ToRole="Fichefrais1" />
+        </EntityType>
+        <Association Name="medicament_fk">
+          <End Role="FAMILLE" Type="GSB2_EQ3Model.FAMILLE" Multiplicity="1" />
+          <End Role="MEDICAMENT" Type="GSB2_EQ3Model.MEDICAMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAMILLE">
+              <PropertyRef Name="idFamille" />
+            </Principal>
+            <Dependent Role="MEDICAMENT">
+              <PropertyRef Name="idFamille" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LigneFrai__idFra__2B3F6F97">
+          <End Role="FraisForfait" Type="GSB2_EQ3Model.FraisForfait" Multiplicity="1" />
+          <End Role="LigneFraisForfait" Type="GSB2_EQ3Model.LigneFraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FraisForfait">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LigneFraisForfait">
+              <PropertyRef Name="idFraisForfait" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laboratoire">
+          <End Role="Laboratoire" Type="GSB2_EQ3Model.Laboratoire" Multiplicity="1" />
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Visiteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laboratoire">
+              <PropertyRef Name="idLabo" />
+            </Principal>
+            <Dependent Role="Visiteur">
+              <PropertyRef Name="idLabo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="medecin_fk">
+          <End Role="SPECIALITE" Type="GSB2_EQ3Model.SPECIALITE" Multiplicity="0..1" />
+          <End Role="MEDECIN" Type="GSB2_EQ3Model.MEDECIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPECIALITE">
+              <PropertyRef Name="idSpecialite" />
+            </Principal>
+            <Dependent Role="MEDECIN">
+              <PropertyRef Name="idSpecialite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="rapport_fk2">
+          <End Role="MEDECIN" Type="GSB2_EQ3Model.MEDECIN" Multiplicity="1" />
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDECIN">
+              <PropertyRef Name="idMedecin" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idMedecin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="offrir_fk2">
+          <End Role="MEDICAMENT" Type="GSB2_EQ3Model.MEDICAMENT" Multiplicity="1" />
+          <End Role="OFFRIR" Type="GSB2_EQ3Model.OFFRIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENT">
+              <PropertyRef Name="idMedicament" />
+            </Principal>
+            <Dependent Role="OFFRIR">
+              <PropertyRef Name="idMedicament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="rapport_fk3">
+          <End Role="MOTIF" Type="GSB2_EQ3Model.MOTIF" Multiplicity="0..1" />
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOTIF">
+              <PropertyRef Name="idMotif" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idMotif" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="offrir_fk1">
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.RAPPORT" Multiplicity="1" />
+          <End Role="OFFRIR" Type="GSB2_EQ3Model.OFFRIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAPPORT">
+              <PropertyRef Name="idRapport" />
+            </Principal>
+            <Dependent Role="OFFRIR">
+              <PropertyRef Name="idRapport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="rapport_fk1">
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Visiteur" Multiplicity="1" />
+          <End Role="RAPPORT" Type="GSB2_EQ3Model.RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECTEUR">
+          <End Role="Secteur" Type="GSB2_EQ3Model.Secteur" Multiplicity="1" />
+          <End Role="Region" Type="GSB2_EQ3Model.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secteur">
+              <PropertyRef Name="idSecteur" />
+            </Principal>
+            <Dependent Role="Region">
+              <PropertyRef Name="idSecteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISITEURSECTEUR">
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Visiteur" Multiplicity="1" />
+          <End Role="Secteur" Type="GSB2_EQ3Model.Secteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="Secteur">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Travailler">
+          <End Role="Region" Type="GSB2_EQ3Model.Region" Multiplicity="*" />
+          <End Role="Visiteur" Type="GSB2_EQ3Model.Visiteur" Multiplicity="*" />
+        </Association>
+        <EntityType Name="fichefrais">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+            <PropertyRef Name="mois" />
+          </Key>
+          <Property Type="String" Name="idVisiteur" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="mois" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="nbJustificatifs" />
+          <Property Type="Decimal" Name="montantValide" Precision="10" Scale="2" />
+          <Property Type="String" Name="dateModif" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="idEtat" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Etat" Relationship="GSB2_EQ3Model.FK__Fichefrai__idEta__6D0D32F4" FromRole="Fichefrais1" ToRole="Etat" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB2_EQ3Model.FK__Fichefrai__idVis__6E01572D" FromRole="Fichefrais1" ToRole="Visiteur" />
+          <NavigationProperty Name="LigneFraisForfait" Relationship="GSB2_EQ3Model.FK__LigneFraisForfai__73BA3083" FromRole="Fichefrais1" ToRole="LigneFraisForfait" />
+          <NavigationProperty Name="LigneFraisHorsForfait" Relationship="GSB2_EQ3Model.FK__LigneFraisHorsFo__03F0984C" FromRole="Fichefrais1" ToRole="LigneFraisHorsForfait" />
+        </EntityType>
+        <Association Name="FK__Fichefrai__idEta__6D0D32F4">
+          <End Type="GSB2_EQ3Model.Etat" Role="Etat" Multiplicity="0..1" />
+          <End Type="GSB2_EQ3Model.fichefrais" Role="Fichefrais1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etat">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Fichefrais1">
+              <PropertyRef Name="idEtat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Fichefrai__idVis__6E01572D">
+          <End Type="GSB2_EQ3Model.Visiteur" Role="Visiteur" Multiplicity="1" />
+          <End Type="GSB2_EQ3Model.fichefrais" Role="Fichefrais1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="Fichefrais1">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LigneFraisForfai__73BA3083">
+          <End Type="GSB2_EQ3Model.fichefrais" Role="Fichefrais1" Multiplicity="1" />
+          <End Type="GSB2_EQ3Model.LigneFraisForfait" Role="LigneFraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fichefrais1">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Principal>
+            <Dependent Role="LigneFraisForfait">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LigneFraisHorsFo__03F0984C">
+          <End Type="GSB2_EQ3Model.fichefrais" Role="Fichefrais1" Multiplicity="1" />
+          <End Type="GSB2_EQ3Model.LigneFraisHorsForfait" Role="LigneFraisHorsForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fichefrais1">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Principal>
+            <Dependent Role="LigneFraisHorsForfait">
+              <PropertyRef Name="idVisiteur" />
+              <PropertyRef Name="mois" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GSB2_EQ3ModelStoreContainer" CdmEntityContainer="GSB_EQ3Entities">
+          <EntitySetMapping Name="Etat">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.Etat">
+              <MappingFragment StoreEntitySet="Etat">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAMILLE">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.FAMILLE">
+              <MappingFragment StoreEntitySet="FAMILLE">
+                <ScalarProperty Name="idFamille" ColumnName="idFamille" />
+                <ScalarProperty Name="libFamille" ColumnName="libFamille" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FraisForfait">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.FraisForfait">
+              <MappingFragment StoreEntitySet="FraisForfait">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laboratoire">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.Laboratoire">
+              <MappingFragment StoreEntitySet="Laboratoire">
+                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
+                <ScalarProperty Name="nomLabo" ColumnName="nomLabo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LigneFraisForfait">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.LigneFraisForfait">
+              <MappingFragment StoreEntitySet="LigneFraisForfait">
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="idFraisForfait" ColumnName="idFraisForfait" />
+                <ScalarProperty Name="quantite" ColumnName="quantite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LigneFraisHorsForfait">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.LigneFraisHorsForfait">
+              <MappingFragment StoreEntitySet="LigneFraisHorsForfait">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDECIN">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.MEDECIN">
+              <MappingFragment StoreEntitySet="MEDECIN">
+                <ScalarProperty Name="idMedecin" ColumnName="idMedecin" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="idSpecialite" ColumnName="idSpecialite" />
+                <ScalarProperty Name="departement" ColumnName="departement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICAMENT">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.MEDICAMENT">
+              <MappingFragment StoreEntitySet="MEDICAMENT">
+                <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
+                <ScalarProperty Name="nomCommercial" ColumnName="nomCommercial" />
+                <ScalarProperty Name="idFamille" ColumnName="idFamille" />
+                <ScalarProperty Name="composition" ColumnName="composition" />
+                <ScalarProperty Name="effets" ColumnName="effets" />
+                <ScalarProperty Name="contreIndications" ColumnName="contreIndications" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOTIF">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.MOTIF">
+              <MappingFragment StoreEntitySet="MOTIF">
+                <ScalarProperty Name="idMotif" ColumnName="idMotif" />
+                <ScalarProperty Name="libMotif" ColumnName="libMotif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OFFRIR">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.OFFRIR">
+              <MappingFragment StoreEntitySet="OFFRIR">
+                <ScalarProperty Name="idRapport" ColumnName="idRapport" />
+                <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
+                <ScalarProperty Name="quantite" ColumnName="quantite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAPPORT">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.RAPPORT">
+              <MappingFragment StoreEntitySet="RAPPORT">
+                <ScalarProperty Name="idRapport" ColumnName="idRapport" />
+                <ScalarProperty Name="dateRapport" ColumnName="dateRapport" />
+                <ScalarProperty Name="idMotif" ColumnName="idMotif" />
+                <ScalarProperty Name="bilan" ColumnName="bilan" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="idMedecin" ColumnName="idMedecin" />
+                <ScalarProperty Name="etatRapport" ColumnName="etatRapport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="libRegion" ColumnName="libRegion" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secteur">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.Secteur">
+              <MappingFragment StoreEntitySet="Secteur">
+                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
+                <ScalarProperty Name="libSecteur" ColumnName="libSecteur" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPECIALITE">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.SPECIALITE">
+              <MappingFragment StoreEntitySet="SPECIALITE">
+                <ScalarProperty Name="idSpecialite" ColumnName="idSpecialite" />
+                <ScalarProperty Name="libSpecialite" ColumnName="libSpecialite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visiteur">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.Visiteur">
+              <MappingFragment StoreEntitySet="Visiteur">
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="rue" ColumnName="rue" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="dateEmbauche" ColumnName="dateEmbauche" />
+                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="droit" ColumnName="droit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Travailler" TypeName="GSB2_EQ3Model.Travailler" StoreEntitySet="Travailler">
+            <EndProperty Name="Region">
+              <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+            </EndProperty>
+            <EndProperty Name="Visiteur">
+              <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="fichefrais">
+            <EntityTypeMapping TypeName="GSB2_EQ3Model.fichefrais">
+              <MappingFragment StoreEntitySet="Fichefrais">
+                <ScalarProperty Name="idEtat" ColumnName="idEtat" />
+                <ScalarProperty Name="dateModif" ColumnName="dateModif" />
+                <ScalarProperty Name="montantValide" ColumnName="montantValide" />
+                <ScalarProperty Name="nbJustificatifs" ColumnName="nbJustificatifs" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="GSB_EQ3" ZoomLevel="70">
+        <EntityTypeShape EntityType="GSB2_EQ3Model.Etat" Width="1.5" PointX="12.125" PointY="5.25" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.FAMILLE" Width="1.5" PointX="6" PointY="19.5" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.FraisForfait" Width="1.5" PointX="10" PointY="2.75" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.Laboratoire" Width="1.5" PointX="2.875" PointY="9" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.LigneFraisForfait" Width="1.5" PointX="7.125" PointY="5.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.LigneFraisHorsForfait" Width="1.5" PointX="12.375" PointY="11" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.MEDECIN" Width="1.5" PointX="6" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.MEDICAMENT" Width="1.5" PointX="8.25" PointY="19" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.MOTIF" Width="1.5" PointX="4.375" PointY="4.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.OFFRIR" Width="1.5" PointX="0.5" PointY="11" Height="1.9802864583333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.RAPPORT" Width="1.5" PointX="0.75" PointY="5.125" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.Region" Width="1.5" PointX="7.5" PointY="15.75" Height="2.1725878906249942" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.Secteur" Width="1.5" PointX="5.25" PointY="15.875" Height="1.9802864583333371" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.SPECIALITE" Width="1.5" PointX="3.75" PointY="1.5" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB2_EQ3Model.Visiteur" Width="1.5" PointX="4.75" PointY="8" Height="4.0956022135416674" IsExpanded="true" />
+        <AssociationConnector Association="GSB2_EQ3Model.medicament_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="20.297841796875" />
+          <ConnectorPoint PointX="8.25" PointY="20.297841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.FK__LigneFrai__idFra__2B3F6F97" ManuallyRouted="false">
+          <ConnectorPoint PointX="10" PointY="4.0499886067708326" />
+          <ConnectorPoint PointX="8.09375" PointY="4.0499886067708326" />
+          <ConnectorPoint PointX="8.09375" PointY="5.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.FK_Laboratoire" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.375" PointY="9.797841796875" />
+          <ConnectorPoint PointX="4.75" PointY="9.797841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.medecin_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="2.2978417968750016" />
+          <ConnectorPoint PointX="6" PointY="2.2978417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.rapport_fk2" ManuallyRouted="false">
+          <ConnectorPoint PointX="6" PointY="1.09375" />
+          <ConnectorPoint PointX="1.2974244259379244" PointY="1.09375" />
+          <ConnectorPoint PointX="1.2974244259379244" PointY="5.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.offrir_fk2" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="19.21875" />
+          <ConnectorPoint PointX="1.25" PointY="19.21875" />
+          <ConnectorPoint PointX="1.25" PointY="12.980286458333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.rapport_fk3" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.375" PointY="5.547841796875" />
+          <ConnectorPoint PointX="2.25" PointY="5.547841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.offrir_fk1" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.375" PointY="8.2590950520833317" />
+          <ConnectorPoint PointX="1.375" PointY="11" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.rapport_fk1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.75" PointY="8.6295500260416667" />
+          <ConnectorPoint PointX="2.15625" PointY="8.6295500260416667" />
+          <ConnectorPoint PointX="2.15625" PointY="8.2590950520833317" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.FK_SECTEUR" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="16.865143229166669" />
+          <ConnectorPoint PointX="7.5" PointY="16.865143229166669" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.FK_VISITEURSECTEUR" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.75" PointY="12.287903645833334" />
+          <ConnectorPoint PointX="5.75" PointY="15.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.Travailler" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="15.75" />
+          <ConnectorPoint PointX="8.25" PointY="11.223152727864576" />
+          <ConnectorPoint PointX="6.25" PointY="11.223152727864576" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="GSB2_EQ3Model.fichefrais" Width="1.5" PointX="14.375" PointY="7.25" Height="2.9417936197916674" />
+        <AssociationConnector Association="GSB2_EQ3Model.FK__Fichefrai__idEta__6D0D32F4" >
+          <ConnectorPoint PointX="13.625" PointY="6.1439925130208328" />
+          <ConnectorPoint PointX="15.125" PointY="6.1439925130208328" />
+          <ConnectorPoint PointX="15.125" PointY="7.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.FK__Fichefrai__idVis__6E01572D" >
+          <ConnectorPoint PointX="6.25" PointY="9.0958968098958337" />
+          <ConnectorPoint PointX="14.375" PointY="9.0958968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.FK__LigneFraisForfai__73BA3083" >
+          <ConnectorPoint PointX="14.375" PointY="8.1654903502604235" />
+          <ConnectorPoint PointX="7.875" PointY="8.1654903502604235" />
+          <ConnectorPoint PointX="7.875" PointY="7.297587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="GSB2_EQ3Model.FK__LigneFraisHorsFo__03F0984C" >
+          <ConnectorPoint PointX="15.125" PointY="10.191793619791667" />
+          <ConnectorPoint PointX="15.125" PointY="12.278595377604166" />
+          <ConnectorPoint PointX="13.875" PointY="12.278595377604166" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

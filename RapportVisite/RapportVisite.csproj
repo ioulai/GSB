@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB54951A-F5FC-4219-8FE4-095B7C52D5C4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RapportVisite</RootNamespace>
+    <AssemblyName>RapportVisite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmCreerRapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreerRapport.Designer.cs">
+      <DependentUpon>frmCreerRapport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFicheFrais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFicheFrais.Designer.cs">
+      <DependentUpon>frmFicheFrais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifierFrais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierFrais.Designer.cs">
+      <DependentUpon>frmModifierFrais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisualiserRapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualiserRapport.Designer.cs">
+      <DependentUpon>frmVisualiserRapport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModifierRapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModifierRapport.Designer.cs">
+      <DependentUpon>FrmModifierRapport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRapportVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRapportVisite.Designer.cs">
+      <DependentUpon>frmRapportVisite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInscriptioncs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInscriptioncs.Designer.cs">
+      <DependentUpon>frmInscriptioncs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GSB_EQ3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GSB_EQ3.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Patronyme.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmConnexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConnexion.Designer.cs">
+      <DependentUpon>frmConnexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRYPTAGE.cs" />
+    <EmbeddedResource Include="frmCreerRapport.resx">
+      <DependentUpon>frmCreerRapport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFicheFrais.resx">
+      <DependentUpon>frmFicheFrais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierFrais.resx">
+      <DependentUpon>frmModifierFrais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualiserRapport.resx">
+      <DependentUpon>frmVisualiserRapport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModifierRapport.resx">
+      <DependentUpon>FrmModifierRapport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRapportVisite.resx">
+      <DependentUpon>frmRapportVisite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInscriptioncs.resx">
+      <DependentUpon>frmInscriptioncs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="frmConnexion.resx">
+      <DependentUpon>frmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="GSB_EQ3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GSB_EQ3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\DataSources\GSB_EQ3Entities.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telecharger-jelly-bean-4-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoGSB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-image-012.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoGSB-ConvertImage-1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
