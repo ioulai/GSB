@@ -109,7 +109,9 @@ namespace RapportVisite
                 MS_Gestion.Visible = false;
             }
 
-            dgv_util.Hide();          
+            dgv_util.Hide();
+            MS_RapportVisite.Visible = false;
+            MS_Profil.Visible = false;
         }
 
         private void btn_modifier_Click(object sender, EventArgs e)
@@ -122,6 +124,7 @@ namespace RapportVisite
         {
             frmVisualiserRapport frmVisualiser = new frmVisualiserRapport(maConnexion, levisiteur);
             frmVisualiser.ShowDialog();
+            
 
         }
 
@@ -148,8 +151,12 @@ namespace RapportVisite
         //instanciation vue saisie frais
         private void ficheFraisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFicheFrais fFicheFrais = new frmFicheFrais(maConnexion, levisiteur);
+            frmFicheFrais fFicheFrais = new frmFicheFrais(maConnexion, levisiteur) ;
+
             fFicheFrais.ShowDialog();
+
+            fFicheFrais.Refresh();
+
         }
         //instanciation vue midification frais
         private void modifierFraisToolStripMenuItem_Click(object sender, EventArgs e)

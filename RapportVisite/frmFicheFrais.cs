@@ -15,14 +15,13 @@ namespace RapportVisite
     {
         private GSB_EQ3Entities maConnexion;
         private Visiteur levisiteurConnecte;
-        private string leIdVisiteurConnecte;
-        private Etat unEtat;               
+        private string leIdVisiteurConnecte;                       
         private fichefrais uneNewFicheFrais;
         private FraisForfait unFraisForfait;
         private LigneFraisForfait uneLigneFrais;
-        private decimal calculTotal;
         private string leMois;
-        private string leIdEtat;
+       // private decimal calculTotal;        
+        //private string leIdEtat;
         //private decimal montantValide;
         // private int justificatif ;
 
@@ -33,7 +32,7 @@ namespace RapportVisite
             maConnexion = MaConnexion;
             levisiteurConnecte = Levisiteur;
             leIdVisiteurConnecte = levisiteurConnecte.idVisiteur;
-            calculTotal = 0;
+           
         }
 
         #region OUVERTURE DU FORMULAIRE
@@ -66,8 +65,6 @@ namespace RapportVisite
             //recap Mois
             leMois = Convert.ToString(cbMois.SelectedItem);
 
-
-
             
 
             //creation d'une fiche frais
@@ -83,17 +80,20 @@ namespace RapportVisite
 
             try
             {
+                
                 this.maConnexion.AddTofichefrais(uneNewFicheFrais);
                 //sauvegarde
-                this.maConnexion.SaveChanges();
+                this.maConnexion.SaveChanges();                
                 MessageBox.Show("La fiche de frais a été ajoutée");
                 //rendre le panel visible
                 pnl_ajoutFrais.Visible = true;
             }
             catch 
             {
+                              
                 MessageBox.Show("Ajout impossible, la fiche existe déja");
 
+                //rendre le panel invisible si ajout impossible
                 pnl_ajoutFrais.Visible = false;
             }
         }
@@ -141,12 +141,10 @@ namespace RapportVisite
         }
         private void txt_quantité_TextChanged(object sender, EventArgs e)
         {
-            // txt_montant.Text = Convert.ToString(0);
-            // if (txt_montant.Text == Convert.ToString(0))
-            // {
+            
             decimal montantTotal = Convert.ToInt32(txt_quantité.Text) * Convert.ToDecimal(txt_tarif.Text);
                 txt_montant.Text = Convert.ToString(montantTotal);
-           // }
+           
         }
         #endregion
 
@@ -208,7 +206,9 @@ namespace RapportVisite
         #region QUITTER
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             this.Close();
+            
         }
 
 

@@ -15,12 +15,10 @@ namespace RapportVisite
     {
 
         private GSB_EQ3Entities maConnexion;
-        private Visiteur levisiteurConnecte;
-        fichefrais ceFrais;
-        private int montantValide, justificatif;
-        private string idEtat;
-        private Etat unEtat;
+        private Visiteur levisiteurConnecte;   
+        private string idEtat;        
         private string ceIdVisiteur;
+        private string leMois;
 
         public frmModifierFrais(GSB_EQ3Entities MaConnexion, Visiteur Levisiteur)
         {
@@ -30,10 +28,10 @@ namespace RapportVisite
             ceIdVisiteur = levisiteurConnecte.idVisiteur;
         }
 
-# region Au chargement du formulaire
+        # region Au chargement du formulaire
         private void frmModifierFrais_Load(object sender, EventArgs e)
         {
-           // bsModifierFrais.DataSource = maConnexion.fichefrais;
+            bsModifierFrais.DataSource = maConnexion.fichefrais;
 
             afficheRecap();   
         }
@@ -88,8 +86,8 @@ namespace RapportVisite
                           select E;
             try
             {
-                this.cbEtat_modif.DisplayMember = "libelle";
-                this.cbEtat_modif.DataSource = ((ObjectQuery)(reqEtat)).Execute(MergeOption.AppendOnly);
+                this.cbEtat.DisplayMember = "libelle";
+                this.cbEtat.DataSource = ((ObjectQuery)(reqEtat)).Execute(MergeOption.AppendOnly);
             }
             catch (Exception ex)
             {
@@ -101,54 +99,61 @@ namespace RapportVisite
             panelDetail.Visible = true;
             var laFicheFrais = this.dgv_modifier.CurrentRow;
             // Utile de connaitre le mois de la fiche de frais à modifier si appel de modification
-           string leMois = Convert.ToString(laFicheFrais.Cells[0].Value);
-            string idEtatFiche = Convert.ToString(laFicheFrais.Cells[5].Value);
+            leMois = Convert.ToString(laFicheFrais.Cells[0].Value);
+
+            string idEtatFiche = Convert.ToString(laFicheFrais.Cells[1].Value);
             txtNbJustificatifs.Text = Convert.ToString(laFicheFrais.Cells[2].Value);
             txtMontantValide.Text = Convert.ToString(laFicheFrais.Cells[3].Value);
             // On format la date pour qu'elle apparaisse sous le format aaaa/mm/jj sans les heures
             txtDate.Text = Convert.ToString(laFicheFrais.Cells[4].Value).Substring(0, 10);
-
-            cbMois_modif.Text = Convert.ToString(laFicheFrais.Cells[0].Value);
-            txtMontantValide_modif.Text = Convert.ToString(laFicheFrais.Cells[3].Value);
-            txtNbJustificatif_modif.Text = Convert.ToString(laFicheFrais.Cells[2].Value);
-            cbEtat_modif.Text = Convert.ToString(laFicheFrais.Cells[1].Value);
+            cbMois.Text = leMois;           
+            cbEtat.Text = idEtatFiche;
         }
         #endregion
 
-
+        private void cbEtat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          Etat  unEtat = (Etat)this.cbEtat.SelectedItem;
+            idEtat = unEtat.id;
+        }
         // Méthode pour affecter les valeurs saisies aux champs de l'enregistrement avant son ajout ou sa mise à jour
         public void Affecter()
         {
-            justificatif = Convert.ToInt32(txtNbJustificatif_modif.Text);
-            justificatif = int.Parse(txtNbJustificatif_modif.Text);
+           string leMois_modif = Convert.ToString(cbMois.SelectedItem);
 
-            montantValide = Convert.ToInt32(txtMontantValide_modif.Text);
-            montantValide = int.Parse(txtMontantValide_modif.Text);
-
-
-
-            ceFrais = (fichefrais)this.bsModifierFrais.Current;
-            ceFrais.idVisiteur = levisiteurConnecte.idVisiteur;
-            ceFrais.mois = cbMois_modif.Text;
-            ceFrais.montantValide = montantValide;
-            ceFrais.nbJustificatifs = justificatif;
-            // ceFrais.Etat = idEtat;
+            fichefrais ceFrais = (fichefrais)this.bsModifierFrais.Current;
+            ceFrais.nbJustificatifs = Convert.ToInt32(txtNbJustificatifs.Text);
+            ceFrais.montantValide = Convert.ToDecimal(txtMontantValide.Text);
+            ceFrais.dateModif = Convert.ToString(DateTime.Today).Substring(0, 10);
+            // ceFrais.mois = leMois_modif;
+            //ceFrais.Etat = Convert.ToString(idEtat);
 
 
         }
 
         private void btn_Modifier_Click(object sender, EventArgs e)
         {
-            this.maConnexion.SaveChanges();
+            try
+            {
+                panelDetail.Visible = false;
+                Affecter();
+                this.maConnexion.SaveChanges();
+                this.Refresh();
+
+                MessageBox.Show("La fiche de frais a été mise à jour");
+                
+            }
+
+            catch
+            {
+                panelDetail.Visible = true;
+                MessageBox.Show("Mise à jour impossible");
+            }
         }
 
         
 
-        private void cbEtat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            unEtat = (Etat)this.cbEtat_modif.SelectedItem;
-            idEtat = Convert.ToString( unEtat.id);
-        }
+      
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
